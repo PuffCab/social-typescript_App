@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React, { useState } from 'react';
+import './App.css';
+import InputBar from './components/inputBar/InputBar';
+import MenuList from './components/menuList/MenuList';
+import { Menu } from './interfaces/interfaces';
+
+
+
+
+
+const App: React.FC = () => {
+  
+  const [menu, setMenu] = useState<string>("")
+  const [listMenus, setListMenus] = useState<Menu[]>([])
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault() 
+    
+    if (menu) {
+
+      setListMenus([...listMenus, { id: Date.now(), menu: menu, isBooked: false }])
+      setMenu("")
+    }
+  }
+  console.log(listMenus)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to .
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span className="titleHeader">HomeChow</span>
+      <InputBar menu={menu} setMenu={setMenu} handleAdd={handleAdd} />
+      <MenuList listMenus={listMenus} setListMenus={setListMenus }/>
+     
     </div>
   );
 }
