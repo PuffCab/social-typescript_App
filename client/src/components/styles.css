@@ -1,6 +1,6 @@
-@media (max-width: 1200px) {
-  .menu__element {
-    width: 40%;
+@media (max-width: 1100px) {
+  .menuLists {
+    width: 45%;
   }
 }
 
@@ -8,10 +8,13 @@
   .input {
     width: 95%;
   }
-  .menuList {
+  .menuLists {
     width: 95%;
+    margin-bottom: 10px;
   }
-  .menu__element {
-    width: 100%;
+
+  .container {
+    width: 95px;
+    flex-direction: column;
   }
 }
