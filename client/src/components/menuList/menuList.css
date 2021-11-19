@@ -1,12 +1,13 @@
 .menuLists {
   display: flex;
+  margin-right: 4px;
   width: 47.5%;
   flex-direction: column;
   padding: 15px;
   border-radius: 5px;
   background-color: rgb(50, 195, 205);
 }
-.container {
+.container__menuList {
   display: flex;
   width: 95%;
   margin-top: 10px;

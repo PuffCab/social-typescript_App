@@ -8,25 +8,25 @@ import { Droppable } from 'react-beautiful-dnd';
 
 interface Props {
     listMenus: Array<Menu>;
-    setListMenus: React.Dispatch<React.SetStateAction<Menu[]>>;
-    readyMenus: Menu[];
-    setReadyMenus: React.Dispatch<React.SetStateAction<Menu[]>>;
+    setListMenus: React.Dispatch<React.SetStateAction<Array<Menu>>>;
+    readyMenus: Array<Menu>;
+    setReadyMenus: React.Dispatch<React.SetStateAction<Array<Menu>>>;
 }
 
 const MenuList:React.FC<Props>  = ({listMenus, setListMenus, readyMenus, setReadyMenus}) => {
     return (
        
-        <div className="container">
+        <div className="container__menuList">
             <Droppable droppableId="menuList">  
 
                 {(provided, snapshot) => (
 
-                        <div className={`menuLists ${snapshot.isDraggingOver ? 'dragactive' : ""}`}
-                            ref={provided.innerRef}
-                            {...provided.droppableProps}
-                        >
+                <div className={`menuLists ${snapshot.isDraggingOver ? 'dragactive' : ""}`}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                >
                 <span className="menuLists__heading">
-                    active
+                    Wanna cook
                 </span>
                {
                     listMenus.map((oneMenu, index) => (
@@ -57,7 +57,7 @@ const MenuList:React.FC<Props>  = ({listMenus, setListMenus, readyMenus, setRead
                             {...provided.droppableProps}
                         >
                 <span className="menuLists__heading">
-                    Ready
+                    Monday
                 </span>
                {
                     readyMenus.map((oneMenu, index) => (

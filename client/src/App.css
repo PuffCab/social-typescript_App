@@ -6,23 +6,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #2f74c0;
+  /* background-color: #2f74c0; */
+  background-color: #335e87;
+  /* background-color: #2C4429; */
+
   font-family: "Neucha", cursive;
 }
 
-.titleHeader {
+/* .titleHeader {
   text-transform: uppercase;
   font-size: 40px;
   margin: 30px 0;
   color: white;
-  z-index: 1;
-  /* z-index to keep text visible when BG animation  */
-  text-align: center;
-}
+  z-index: 1; */
+/* z-index to keep text visible when BG animation  */
+/* text-align: center;
+} */
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .titleHeader {
     margin: 15px;
     font-style: 35px;
   }
-}
+} */

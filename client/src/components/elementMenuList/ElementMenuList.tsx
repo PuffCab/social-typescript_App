@@ -8,8 +8,8 @@ import { Draggable } from 'react-beautiful-dnd'
 type Props = {
     index: number;
     oneMenu: Menu;
-    listMenus: Menu[];
-    setListMenus: React.Dispatch<React.SetStateAction<Menu[]>>
+    listMenus: Array<Menu>;
+    setListMenus: React.Dispatch<React.SetStateAction<Array<Menu>>>;
 
 
 }
@@ -31,12 +31,14 @@ const ElementMenuList = ({ index, oneMenu, listMenus, setListMenus }: Props) => 
     }
 
     const handleEdit = (e: React.FormEvent, id: number) => {
+        console.log(listMenus)
         e.preventDefault();
         setListMenus(listMenus.map((oneMenu) => (
             oneMenu.id === id ? { ...oneMenu, oneMenu: editOneMenu } : oneMenu
-        ))
+        )) 
         );
         setEdit(false)
+        console.log(listMenus)
     }
 
     useEffect(() => {
@@ -50,12 +52,15 @@ const ElementMenuList = ({ index, oneMenu, listMenus, setListMenus }: Props) => 
             {
                 (provided, snapshot) => (
                     <form className={`menu__element ${snapshot.isDragging ? 'drag' : ""}`}
+                        
                         onSubmit={(e) => handleEdit(e, oneMenu.id)}
+                    
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                     >
-                        {
+                        
+                        { 
                             edit ? (
                                 <input
                                     ref={inputRef}
@@ -77,7 +82,7 @@ const ElementMenuList = ({ index, oneMenu, listMenus, setListMenus }: Props) => 
                         <div>
                             <span
                                 className="icon"
-                                onClick={() => {
+                                onClick={() => { 
                                 if (!edit && !oneMenu.isBooked) {
                                     setEdit(!edit);
                                     }
